@@ -15,10 +15,10 @@ app = Flask(__name__)
 # TODO: assign integer,specific types to possible integer replies etc
 # TODO: if one sentiment column all data are empty, do not include it
 # Only need to change Username, password to db, and qualtric survey and API Key
-db_username = "XXXXXXXXXXXXX"  #HANACLoud DB User
-db_password = "XXXXXXXXXXXXX"  #HANA Cloud Password
-qtrics_surv_id = "XXXXXXXXXXXXX"  #Provide your Survey ID
-qtrics_api_key = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"  #Provide your API Token
+db_username = "DBADMIN"  #HANACLoud DB User
+db_password = "Patagonia2021"  #HANA Cloud Password
+qtrics_surv_id = "SV_0d2P7QVnzpL1Iuq"  #Provide your Survey ID
+qtrics_api_key = "l6DKA21vcJMUpJxpEyxEkfrRi78yc3KyZ2JTruyB"  #Provide your API Token
 schema_str = "BTP"  # replace it with another schema
 ###
 FILE_NAME = ""
@@ -95,7 +95,7 @@ def pydbConnect(file_data):
     r_id_num = 1
     # connect to hdb
     connection = dbapi.connect(
-        address="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",  #HANA Cloud host
+        address="dac00f34-4667-4a90-93be-6eb2ba95830b.hana.trial-us10.hanacloud.ondemand.com",  #HANA Cloud host
         port=443,
         user=db_username,
         password=db_password
@@ -189,7 +189,7 @@ def pydbConnect(file_data):
 def main():
     print('Welcome to Qualtrics Response Extract')
     # token needs to be stored in os_env
-    file_data = getReponse("XXX", qtrics_api_key, qtrics_surv_id)   #Proivde your Qualtrics data denter
+    file_data = getReponse("co1", qtrics_api_key, qtrics_surv_id)   #Proivde your Qualtrics data denter
     pydbConnect(file_data)
     return "Survey response has been succesfully replicated into HANA Cloud"
 
